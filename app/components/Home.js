@@ -96,9 +96,8 @@ export default class Home extends Component<Props> {
   }
 
   handleClickCaptureScreen = () => {
-    this.interval = setInterval(() => {
+    setTimeout(() => {
       this.fullscreenScreenshot(this.cb, 'image/png');
-      clearInterval(this.interval);
       this.handleClickCaptureScreen();
     }, duration * Math.random());
   };
@@ -116,9 +115,10 @@ export default class Home extends Component<Props> {
           <p>for</p>
           <p>remote working</p>
           <button onClick={this.handleClickCaptureScreen}>
+            {' '}
+            {/* eslint-disable-line */}
             capture screen
-          </button>{' '}
-          {/* eslint-disable-line */}
+          </button>
           <br />
           <img
             id="img-preview"
